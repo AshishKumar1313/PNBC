@@ -1,0 +1,122 @@
+{
+  "filename": "sample_2_multipage_spanning.pdf",
+  "page_count": 2,
+  "total_questions": 3,
+  "questions": [
+    {
+      "question_number": "1",
+      "question_text": "Define asymptotic notation and explain Big-O notation.",
+      "question_type": "single_choice",
+      "options": [
+        {
+          "key": "A",
+          "text": "Upper bound on running time"
+        },
+        {
+          "key": "B",
+          "text": "Lower bound on running time"
+        },
+        {
+          "key": "C",
+          "text": "Exact bound on running time"
+        },
+        {
+          "key": "D",
+          "text": "None of the above"
+        }
+      ],
+      "answer": "A",
+      "answer_source": "inline",
+      "answer_status": "matched",
+      "answer_confidence": 1.0,
+      "explanation": null,
+      "source_pages": [
+        1
+      ],
+      "raw_text": "Define asymptotic notation and explain Big-O notation.\n(A) Upper bound on running time\n(B) Lower bound on running time\n(C) Exact bound on running time\n(D) None of the above\nAns: A",
+      "bounding_boxes": [],
+      "confidence": 1.0,
+      "needs_review": false,
+      "review_reasons": [],
+      "status": "auto_extracted"
+    },
+    {
+      "question_number": "2",
+      "question_text": "In a distributed consensus protocol running across multiple unreliable network partitions, which of the following",
+      "question_type": "single_choice",
+      "options": [
+        {
+          "key": "A",
+          "text": "Consistency and Latency"
+        },
+        {
+          "key": "B",
+          "text": "Consistency and Availability"
+        },
+        {
+          "key": "C",
+          "text": "Partition Tolerance and Durability"
+        },
+        {
+          "key": "D",
+          "text": "Atomicity and Isolation"
+        }
+      ],
+      "answer": "B",
+      "answer_source": "inline",
+      "answer_status": "matched",
+      "answer_confidence": 1.0,
+      "explanation": null,
+      "source_pages": [
+        1,
+        2
+      ],
+      "raw_text": "In a distributed consensus protocol running across multiple unreliable network partitions, which of the following\n(A) Consistency and Latency\n(B) Consistency and Availability\n(C) Partition Tolerance and Durability\n(D) Atomicity and Isolation\nAns: B",
+      "bounding_boxes": [],
+      "confidence": 0.95,
+      "needs_review": true,
+      "review_reasons": [
+        "split_across_pages"
+      ],
+      "status": "auto_extracted"
+    },
+    {
+      "question_number": "3",
+      "question_text": "Which sorting algorithm exhibits the best worst-case performance among comparison sorts?",
+      "question_type": "single_choice",
+      "options": [
+        {
+          "key": "A",
+          "text": "Quick Sort"
+        },
+        {
+          "key": "B",
+          "text": "Merge Sort"
+        },
+        {
+          "key": "C",
+          "text": "Bubble Sort"
+        },
+        {
+          "key": "D",
+          "text": "Insertion Sort"
+        }
+      ],
+      "answer": "B",
+      "answer_source": "inline",
+      "answer_status": "matched",
+      "answer_confidence": 1.0,
+      "explanation": null,
+      "source_pages": [
+        2
+      ],
+      "raw_text": "Which sorting algorithm exhibits the best worst-case performance among comparison sorts?\n(A) Quick Sort\n(B) Merge Sort\n(C) Bubble Sort\n(D) Insertion Sort\nAns: B",
+      "bounding_boxes": [],
+      "confidence": 1.0,
+      "needs_review": false,
+      "review_reasons": [],
+      "status": "auto_extracted"
+    }
+  ],
+  "answer_key_items": []
+}

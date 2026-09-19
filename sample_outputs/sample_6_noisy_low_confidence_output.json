@@ -1,0 +1,78 @@
+{
+  "filename": "sample_6_noisy_low_confidence.pdf",
+  "page_count": 1,
+  "total_questions": 2,
+  "questions": [
+    {
+      "question_number": "1",
+      "question_text": "Who",
+      "question_type": "single_choice",
+      "options": [
+        {
+          "key": "A",
+          "text": "Alan Turing"
+        },
+        {
+          "key": "B",
+          "text": "Ada Lovelace"
+        },
+        {
+          "key": "D",
+          "text": "Charles Babbage"
+        }
+      ],
+      "answer": null,
+      "answer_source": null,
+      "answer_status": "unmatched",
+      "answer_confidence": 0.0,
+      "explanation": null,
+      "source_pages": [
+        1
+      ],
+      "raw_text": "Who\n(A) Alan Turing\n(B) Ada Lovelace\n(D) Charles Babbage",
+      "bounding_boxes": [],
+      "confidence": 0.45,
+      "needs_review": true,
+      "review_reasons": [
+        "very_short_question_stem",
+        "discontinuous_option_keys",
+        "unmatched_answer_key"
+      ],
+      "status": "auto_extracted"
+    },
+    {
+      "question_number": "5",
+      "question_text": "In thermodynamics, absolute zero temperature is:",
+      "question_type": "single_choice",
+      "options": [
+        {
+          "key": "A",
+          "text": "0 Kelvin"
+        },
+        {
+          "key": "B",
+          "text": "-273.15 Celsius"
+        }
+      ],
+      "answer": null,
+      "answer_source": null,
+      "answer_status": "unmatched",
+      "answer_confidence": 0.0,
+      "explanation": null,
+      "source_pages": [
+        1
+      ],
+      "raw_text": "In thermodynamics, absolute zero temperature is:\n(A) 0 Kelvin\n(B) -273.15 Celsius",
+      "bounding_boxes": [],
+      "confidence": 0.7,
+      "needs_review": true,
+      "review_reasons": [
+        "partial_options_count_2",
+        "non_sequential_number_expected_2_got_5",
+        "unmatched_answer_key"
+      ],
+      "status": "auto_extracted"
+    }
+  ],
+  "answer_key_items": []
+}

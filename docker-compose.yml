@@ -1,0 +1,83 @@
+version: '3.9'
+
+services:
+  db:
+    image: postgres:16
+    container_name: pragati_postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: pragati
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  redis:
+    image: redis:7-alpine
+    container_name: pragati_redis
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+
+  api:
+    build: .
+    container_name: pragati_api
+    restart: unless-stopped
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+    volumes:
+      - .:/app
+      - uploads:/app/storage/uploads
+    working_dir: /app
+    ports:
+      - "8000:8000"
+    environment:
+      - APP_NAME=pragati-bharati
+      - APP_ENV=production
+      - DATABASE_URL=postgresql+asyncpg://postgres:postgres@db:5432/pragati
+      - REDIS_URL=redis://redis:6379/0
+      - JWT_SECRET=pragati-bharati-super-secure-production-secret-key-2026
+      - UPLOAD_DIR=/app/storage/uploads
+      - MAX_UPLOAD_SIZE=15728640
+    depends_on:
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+
+  worker:
+    build: .
+    container_name: pragati_arq_worker
+    restart: unless-stopped
+    command: arq app.workers.arq_worker.WorkerSettings
+    volumes:
+      - .:/app
+      - uploads:/app/storage/uploads
+    working_dir: /app
+    environment:
+      - APP_NAME=pragati-bharati
+      - APP_ENV=production
+      - DATABASE_URL=postgresql+asyncpg://postgres:postgres@db:5432/pragati
+      - REDIS_URL=redis://redis:6379/0
+      - JWT_SECRET=pragati-bharati-super-secure-production-secret-key-2026
+      - UPLOAD_DIR=/app/storage/uploads
+    depends_on:
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+
+volumes:
+  pgdata:
+  uploads:

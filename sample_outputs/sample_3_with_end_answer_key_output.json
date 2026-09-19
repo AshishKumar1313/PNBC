@@ -1,0 +1,234 @@
+{
+  "filename": "sample_3_with_end_answer_key.pdf",
+  "page_count": 2,
+  "total_questions": 5,
+  "questions": [
+    {
+      "question_number": "1",
+      "question_text": "What is the SI unit of electric current?",
+      "question_type": "single_choice",
+      "options": [
+        {
+          "key": "A",
+          "text": "Volt"
+        },
+        {
+          "key": "B",
+          "text": "Ampere"
+        },
+        {
+          "key": "C",
+          "text": "Ohm"
+        },
+        {
+          "key": "D",
+          "text": "Watt"
+        }
+      ],
+      "answer": "B",
+      "answer_source": "document_answer_key",
+      "answer_status": "matched",
+      "answer_confidence": 0.95,
+      "explanation": null,
+      "source_pages": [
+        1
+      ],
+      "raw_text": "What is the SI unit of electric current?\n(A) Volt\n(B) Ampere\n(C) Ohm\n(D) Watt",
+      "bounding_boxes": [],
+      "confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": [],
+      "status": "auto_extracted"
+    },
+    {
+      "question_number": "2",
+      "question_text": "Which planet in our solar system is known as the Red Planet?",
+      "question_type": "single_choice",
+      "options": [
+        {
+          "key": "A",
+          "text": "Venus"
+        },
+        {
+          "key": "B",
+          "text": "Saturn"
+        },
+        {
+          "key": "C",
+          "text": "Mars"
+        },
+        {
+          "key": "D",
+          "text": "Jupiter"
+        }
+      ],
+      "answer": "C",
+      "answer_source": "document_answer_key",
+      "answer_status": "matched",
+      "answer_confidence": 0.95,
+      "explanation": null,
+      "source_pages": [
+        1
+      ],
+      "raw_text": "Which planet in our solar system is known as the Red Planet?\n(A) Venus\n(B) Saturn\n(C) Mars\n(D) Jupiter",
+      "bounding_boxes": [],
+      "confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": [],
+      "status": "auto_extracted"
+    },
+    {
+      "question_number": "3",
+      "question_text": "What is the primary gas found in the Earth's atmosphere?",
+      "question_type": "single_choice",
+      "options": [
+        {
+          "key": "A",
+          "text": "Oxygen"
+        },
+        {
+          "key": "B",
+          "text": "Carbon Dioxide"
+        },
+        {
+          "key": "C",
+          "text": "Nitrogen"
+        },
+        {
+          "key": "D",
+          "text": "Hydrogen"
+        }
+      ],
+      "answer": "C",
+      "answer_source": "document_answer_key",
+      "answer_status": "matched",
+      "answer_confidence": 0.95,
+      "explanation": null,
+      "source_pages": [
+        1
+      ],
+      "raw_text": "What is the primary gas found in the Earth's atmosphere?\n(A) Oxygen\n(B) Carbon Dioxide\n(C) Nitrogen\n(D) Hydrogen",
+      "bounding_boxes": [],
+      "confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": [],
+      "status": "auto_extracted"
+    },
+    {
+      "question_number": "4",
+      "question_text": "What is the chemical formula for water?",
+      "question_type": "single_choice",
+      "options": [
+        {
+          "key": "A",
+          "text": "CO2"
+        },
+        {
+          "key": "B",
+          "text": "NaCl"
+        },
+        {
+          "key": "C",
+          "text": "CH4"
+        },
+        {
+          "key": "D",
+          "text": "H2O"
+        }
+      ],
+      "answer": "D",
+      "answer_source": "document_answer_key",
+      "answer_status": "matched",
+      "answer_confidence": 0.95,
+      "explanation": null,
+      "source_pages": [
+        2
+      ],
+      "raw_text": "What is the chemical formula for water?\n(A) CO2\n(B) NaCl\n(C) CH4\n(D) H2O",
+      "bounding_boxes": [],
+      "confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": [],
+      "status": "auto_extracted"
+    },
+    {
+      "question_number": "5",
+      "question_text": "Sound waves cannot travel through which of the following mediums?",
+      "question_type": "single_choice",
+      "options": [
+        {
+          "key": "A",
+          "text": "Steel"
+        },
+        {
+          "key": "B",
+          "text": "Water"
+        },
+        {
+          "key": "C",
+          "text": "Vacuum"
+        },
+        {
+          "key": "D",
+          "text": "Air"
+        }
+      ],
+      "answer": "C",
+      "answer_source": "document_answer_key",
+      "answer_status": "matched",
+      "answer_confidence": 0.95,
+      "explanation": null,
+      "source_pages": [
+        2
+      ],
+      "raw_text": "Sound waves cannot travel through which of the following mediums?\n(A) Steel\n(B) Water\n(C) Vacuum\n(D) Air",
+      "bounding_boxes": [],
+      "confidence": 0.95,
+      "needs_review": false,
+      "review_reasons": [],
+      "status": "auto_extracted"
+    }
+  ],
+  "answer_key_items": [
+    {
+      "question_number": "1",
+      "answer": "B",
+      "explanation": null,
+      "page_number": 2,
+      "raw_text": "1. B",
+      "confidence": 1.0
+    },
+    {
+      "question_number": "2",
+      "answer": "C",
+      "explanation": null,
+      "page_number": 2,
+      "raw_text": "2. C",
+      "confidence": 1.0
+    },
+    {
+      "question_number": "3",
+      "answer": "C",
+      "explanation": null,
+      "page_number": 2,
+      "raw_text": "3. C",
+      "confidence": 1.0
+    },
+    {
+      "question_number": "4",
+      "answer": "D",
+      "explanation": null,
+      "page_number": 2,
+      "raw_text": "4. D",
+      "confidence": 1.0
+    },
+    {
+      "question_number": "5",
+      "answer": "C",
+      "explanation": null,
+      "page_number": 2,
+      "raw_text": "5. C",
+      "confidence": 1.0
+    }
+  ]
+}

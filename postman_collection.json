@@ -1,0 +1,460 @@
+{
+  "info": {
+    "_postman_id": "pragati-bharati-doc-intelligence-collection",
+    "name": "Pragati Bharati - Document Intelligence API",
+    "description": "Production Postman collection for the Document Intelligence & Question Extraction Service.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8000",
+      "type": "string"
+    },
+    {
+      "key": "token",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "documentId",
+      "value": "1",
+      "type": "string"
+    },
+    {
+      "key": "questionId",
+      "value": "1",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "1. Authentication",
+      "item": [
+        {
+          "name": "Register User",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"educator@pragati.edu\",\n  \"password\": \"PragatiPass2026!\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/auth/register",
+              "host": ["{{baseUrl}}"],
+              "path": ["auth", "register"]
+            }
+          }
+        },
+        {
+          "name": "Login User",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "var jsonData = pm.response.json();",
+                  "if (jsonData.access_token) {",
+                  "    pm.collectionVariables.set('token', jsonData.access_token);",
+                  "}"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"educator@pragati.edu\",\n  \"password\": \"PragatiPass2026!\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/auth/login",
+              "host": ["{{baseUrl}}"],
+              "path": ["auth", "login"]
+            }
+          }
+        },
+        {
+          "name": "Get Profile (/auth/me)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/auth/me",
+              "host": ["{{baseUrl}}"],
+              "path": ["auth", "me"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "2. Document Ingestion & Processing",
+      "item": [
+        {
+          "name": "Upload Document (PDF / Image)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "var data = pm.response.json();",
+                  "if (data.id) {",
+                  "    pm.collectionVariables.set('documentId', data.id);",
+                  "}"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "file",
+                  "type": "file",
+                  "src": "sample_documents/sample_1_standard_mcq.pdf"
+                },
+                {
+                  "key": "document_type",
+                  "value": "question_paper",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{baseUrl}}/documents/upload",
+              "host": ["{{baseUrl}}"],
+              "path": ["documents", "upload"]
+            }
+          }
+        },
+        {
+          "name": "Poll Document Processing Status",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/documents/{{documentId}}/status",
+              "host": ["{{baseUrl}}"],
+              "path": ["documents", "{{documentId}}", "status"]
+            }
+          }
+        },
+        {
+          "name": "Trigger Re-Processing",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "url": {
+              "raw": "{{baseUrl}}/documents/{{documentId}}/process",
+              "host": ["{{baseUrl}}"],
+              "path": ["documents", "{{documentId}}", "process"]
+            }
+          }
+        },
+        {
+          "name": "List User Documents",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/documents?skip=0&limit=20",
+              "host": ["{{baseUrl}}"],
+              "path": ["documents"],
+              "query": [
+                {"key": "skip", "value": "0"},
+                {"key": "limit", "value": "20"}
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Document Details (with Questions & Keys)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/documents/{{documentId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["documents", "{{documentId}}"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "3. Question Extraction & Human Review",
+      "item": [
+        {
+          "name": "Retrieve Extracted Questions",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/documents/{{documentId}}/questions",
+              "host": ["{{baseUrl}}"],
+              "path": ["documents", "{{documentId}}", "questions"]
+            }
+          }
+        },
+        {
+          "name": "Retrieve Review Items (Low Confidence / Flagged)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/documents/{{documentId}}/review-items",
+              "host": ["{{baseUrl}}"],
+              "path": ["documents", "{{documentId}}", "review-items"]
+            }
+          }
+        },
+        {
+          "name": "Retrieve Single Question Details",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/questions/{{questionId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["questions", "{{questionId}}"]
+            }
+          }
+        },
+        {
+          "name": "Review & Update Question (Human-in-the-Loop)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"question_text\": \"Which data structure operates on a Last In First Out (LIFO) principle?\",\n  \"answer\": \"B\",\n  \"status\": \"verified\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/questions/{{questionId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["questions", "{{questionId}}"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "4. Answer Key & Document Linking",
+      "item": [
+        {
+          "name": "Retrieve Document Answer Key",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/documents/{{documentId}}/answer-key",
+              "host": ["{{baseUrl}}"],
+              "path": ["documents", "{{documentId}}", "answer-key"]
+            }
+          }
+        },
+        {
+          "name": "Link Related Document (e.g. Answer Key PDF)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"related_document_id\": 2,\n  \"relation_type\": \"answer_key\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/documents/{{documentId}}/link",
+              "host": ["{{baseUrl}}"],
+              "path": ["documents", "{{documentId}}", "link"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "5. Structured Export & Clean-up",
+      "item": [
+        {
+          "name": "Export Structured Questions JSON",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/documents/{{documentId}}/export",
+              "host": ["{{baseUrl}}"],
+              "path": ["documents", "{{documentId}}", "export"]
+            }
+          }
+        },
+        {
+          "name": "Delete Document",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "url": {
+              "raw": "{{baseUrl}}/documents/{{documentId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["documents", "{{documentId}}"]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

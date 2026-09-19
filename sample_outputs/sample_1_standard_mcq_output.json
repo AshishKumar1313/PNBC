@@ -1,0 +1,119 @@
+{
+  "filename": "sample_1_standard_mcq.pdf",
+  "page_count": 1,
+  "total_questions": 3,
+  "questions": [
+    {
+      "question_number": "1",
+      "question_text": "Which data structure operates on a Last In First Out (LIFO) principle?",
+      "question_type": "single_choice",
+      "options": [
+        {
+          "key": "A",
+          "text": "Queue"
+        },
+        {
+          "key": "B",
+          "text": "Stack"
+        },
+        {
+          "key": "C",
+          "text": "Binary Search Tree"
+        },
+        {
+          "key": "D",
+          "text": "Linked List"
+        }
+      ],
+      "answer": "B",
+      "answer_source": "inline",
+      "answer_status": "matched",
+      "answer_confidence": 1.0,
+      "explanation": "A Stack is a linear data structure that follows the LIFO principle.",
+      "source_pages": [
+        1
+      ],
+      "raw_text": "Which data structure operates on a Last In First Out (LIFO) principle?\n(A) Queue\n(B) Stack\n(C) Binary Search Tree\n(D) Linked List\nAns: B\nExplanation: A Stack is a linear data structure that follows the LIFO principle.",
+      "bounding_boxes": [],
+      "confidence": 1.0,
+      "needs_review": false,
+      "review_reasons": [],
+      "status": "auto_extracted"
+    },
+    {
+      "question_number": "2",
+      "question_text": "What is the average time complexity of searching an element in a balanced Binary Search Tree?",
+      "question_type": "single_choice",
+      "options": [
+        {
+          "key": "A",
+          "text": "O"
+        },
+        {
+          "key": "B",
+          "text": "O"
+        },
+        {
+          "key": "C",
+          "text": "O"
+        },
+        {
+          "key": "D",
+          "text": "O"
+        }
+      ],
+      "answer": "C",
+      "answer_source": "inline",
+      "answer_status": "matched",
+      "answer_confidence": 1.0,
+      "explanation": null,
+      "source_pages": [
+        1
+      ],
+      "raw_text": "What is the average time complexity of searching an element in a balanced Binary Search Tree?\n(A) O(1)\n(B) O(n)\n(C) O(log n)\n(D) O(n^2)\nAnswer: (C)",
+      "bounding_boxes": [],
+      "confidence": 1.0,
+      "needs_review": false,
+      "review_reasons": [],
+      "status": "auto_extracted"
+    },
+    {
+      "question_number": "3",
+      "question_text": "Which of the following networking protocols is connection-oriented?",
+      "question_type": "single_choice",
+      "options": [
+        {
+          "key": "A",
+          "text": "UDP"
+        },
+        {
+          "key": "B",
+          "text": "IP"
+        },
+        {
+          "key": "C",
+          "text": "ICMP"
+        },
+        {
+          "key": "D",
+          "text": "TCP"
+        }
+      ],
+      "answer": "D",
+      "answer_source": "inline",
+      "answer_status": "matched",
+      "answer_confidence": 1.0,
+      "explanation": null,
+      "source_pages": [
+        1
+      ],
+      "raw_text": "Which of the following networking protocols is connection-oriented?\n(A) UDP\n(B) IP\n(C) ICMP\n(D) TCP\nAns: D",
+      "bounding_boxes": [],
+      "confidence": 1.0,
+      "needs_review": false,
+      "review_reasons": [],
+      "status": "auto_extracted"
+    }
+  ],
+  "answer_key_items": []
+}

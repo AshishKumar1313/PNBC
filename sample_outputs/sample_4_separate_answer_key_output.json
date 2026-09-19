@@ -1,0 +1,48 @@
+{
+  "filename": "sample_4_separate_answer_key.pdf",
+  "page_count": 1,
+  "total_questions": 0,
+  "questions": [],
+  "answer_key_items": [
+    {
+      "question_number": "1",
+      "answer": "B",
+      "explanation": null,
+      "page_number": 1,
+      "raw_text": "1. B",
+      "confidence": 1.0
+    },
+    {
+      "question_number": "2",
+      "answer": "C",
+      "explanation": null,
+      "page_number": 1,
+      "raw_text": "2. C",
+      "confidence": 1.0
+    },
+    {
+      "question_number": "3",
+      "answer": "D",
+      "explanation": null,
+      "page_number": 1,
+      "raw_text": "3. D",
+      "confidence": 1.0
+    },
+    {
+      "question_number": "4",
+      "answer": "A",
+      "explanation": null,
+      "page_number": 1,
+      "raw_text": "4. A",
+      "confidence": 1.0
+    },
+    {
+      "question_number": "5",
+      "answer": "B",
+      "explanation": null,
+      "page_number": 1,
+      "raw_text": "5. B",
+      "confidence": 1.0
+    }
+  ]
+}

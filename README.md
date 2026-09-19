@@ -161,6 +161,17 @@ docker compose up --build
 - PostgreSQL: Port `5432`
 - Redis: Port `6379`
 
+### Live Deployment
+
+The API is deployed on Render and is available for demonstration:
+
+- API: [https://pnbc-33vb.onrender.com](https://pnbc-33vb.onrender.com)
+- Swagger UI: [https://pnbc-33vb.onrender.com/docs](https://pnbc-33vb.onrender.com/docs)
+- ReDoc: [https://pnbc-33vb.onrender.com/redoc](https://pnbc-33vb.onrender.com/redoc)
+- Health check: [https://pnbc-33vb.onrender.com/health](https://pnbc-33vb.onrender.com/health)
+
+Use the Swagger UI to register a user, log in, authorize with the returned bearer token, upload an exam document, and view the extracted questions.
+
 ---
 
 ## 🧪 Running Automated Tests
